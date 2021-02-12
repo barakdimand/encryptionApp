@@ -1,31 +1,37 @@
 import styled from "styled-components";
 import { useState } from "react";
+import { withRouter } from "react-router-dom";
 
-const LoginForm = () => {
+const LoginForm = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleOnClick = () => {
-    console.log({ username });
-    console.log({ password });
+    verifyUser() && props.history.push("/home");
+  };
+
+  const verifyUser = () => {
+    return username === "admin" && password === "admin";
   };
 
   return (
     <Container>
-      <TextInputWrapper>
-        <input
-          placeholder={"username..."}
-          onChange={(e) => setUsername(e.target.value)}
-          value={username}
-        />
-      </TextInputWrapper>
-      <TextInputWrapper>
-        <input
-          placeholder={"password..."}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </TextInputWrapper>
-      <button onClick={handleOnClick}>Sign In</button>
+      <withRouter>
+        <TextInputWrapper>
+          <input
+            placeholder={"username..."}
+            onChange={(e) => setUsername(e.target.value)}
+            value={username}
+          />
+        </TextInputWrapper>
+        <TextInputWrapper>
+          <input
+            placeholder={"password..."}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </TextInputWrapper>
+        <button onClick={handleOnClick}>Sign In</button>
+      </withRouter>
     </Container>
   );
 };
@@ -49,4 +55,4 @@ const TextInputWrapper = styled.div`
   border-radius: 20px;
 `;
 
-export default LoginForm;
+export default withRouter(LoginForm);

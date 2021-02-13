@@ -9,7 +9,8 @@ const LoginForm = (props) => {
 
   const history = useHistory();
   const handleOnClick = () => {
-    verifyUser() && (setIsLoggedIn(true) || history.push("/home"));
+    // verifyUser() &&
+    setIsLoggedIn(true) || history.push("/home");
   };
 
   const verifyUser = () => {

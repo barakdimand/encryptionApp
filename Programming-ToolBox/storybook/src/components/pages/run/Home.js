@@ -11,6 +11,7 @@ import Header from "./Header";
 import ErrorPage from "../ErrorPage";
 import PageNotFound from "../PageNotFound";
 import Inbox from "../../common/Inbox";
+import Codes from "../../common/Codes";
 
 const HomeContent = (props) => {
   const history = useHistory();
@@ -19,7 +20,7 @@ const HomeContent = (props) => {
       <div onClick={() => history.push("/inbox")}>inbox</div>
       <div>sent</div>
       <div>draft</div>
-      <div>codes</div>
+      <div onClick={() => history.push("/codes")}>codes</div>
     </ContentWrapper>
   );
 };
@@ -34,6 +35,7 @@ const Home = (props) => {
             <Switch>
               <Route exact path="/home" component={HomeContent} />
               <Route exact path="/inbox" component={Inbox} />
+              <Route exact path="/codes/:id?" component={Codes} />
 
               <Route exact path="/error" component={ErrorPage} />
               <Route path="*" component={PageNotFound} />

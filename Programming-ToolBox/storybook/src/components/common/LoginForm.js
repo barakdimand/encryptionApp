@@ -5,9 +5,10 @@ import { withRouter } from "react-router-dom";
 const LoginForm = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleOnClick = () => {
-    verifyUser() && props.history.push("/home");
+    verifyUser() && (setIsLoggedIn(true) || props.history.push("/home"));
   };
 
   const verifyUser = () => {

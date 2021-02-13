@@ -9,6 +9,7 @@ const LoginForm = (props) => {
 
   const history = useHistory();
   const handleOnClick = () => {
+    // commented out for dev-purposes: does not require admin login to display rest of pages
     // verifyUser() &&
     setIsLoggedIn(true) || history.push("/home");
   };

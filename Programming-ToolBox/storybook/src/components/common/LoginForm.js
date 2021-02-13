@@ -1,14 +1,15 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { withRouter } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const LoginForm = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  const history = useHistory();
   const handleOnClick = () => {
-    verifyUser() && (setIsLoggedIn(true) || props.history.push("/home"));
+    verifyUser() && (setIsLoggedIn(true) || history.push("/home"));
   };
 
   const verifyUser = () => {
@@ -17,22 +18,20 @@ const LoginForm = (props) => {
 
   return (
     <Container>
-      <withRouter>
-        <TextInputWrapper>
-          <input
-            placeholder={"username..."}
-            onChange={(e) => setUsername(e.target.value)}
-            value={username}
-          />
-        </TextInputWrapper>
-        <TextInputWrapper>
-          <input
-            placeholder={"password..."}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </TextInputWrapper>
-        <button onClick={handleOnClick}>Sign In</button>
-      </withRouter>
+      <TextInputWrapper>
+        <input
+          placeholder={"username..."}
+          onChange={(e) => setUsername(e.target.value)}
+          value={username}
+        />
+      </TextInputWrapper>
+      <TextInputWrapper>
+        <input
+          placeholder={"password..."}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </TextInputWrapper>
+      <button onClick={handleOnClick}>Sign In</button>
     </Container>
   );
 };
@@ -56,4 +55,4 @@ const TextInputWrapper = styled.div`
   border-radius: 20px;
 `;
 
-export default withRouter(LoginForm);
+export default LoginForm;

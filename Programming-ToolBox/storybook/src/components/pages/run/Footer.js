@@ -1,8 +1,15 @@
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { RUN_FOOTER_HEIGHT, THEME } from "../../../constants/app.constants";
 
 const Footer = () => {
-  return <FooterWrapper>I'm a footer</FooterWrapper>;
+  const history = useHistory();
+  const goHome = () => history.push("/home");
+  return (
+    <FooterWrapper>
+      <div>I'm a footer</div>
+    </FooterWrapper>
+  );
 };
 
 const FooterWrapper = styled.div`

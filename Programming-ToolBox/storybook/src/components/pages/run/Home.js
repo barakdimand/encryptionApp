@@ -12,6 +12,7 @@ import ErrorPage from "../ErrorPage";
 import PageNotFound from "../PageNotFound";
 import Inbox from "../../common/Inbox";
 import Codes from "../../common/Codes";
+import { RUN_FOOTER_HEIGHT } from "../../../constants/app.constants";
 
 const HomeContent = (props) => {
   const history = useHistory();
@@ -49,8 +50,17 @@ const Home = (props) => {
   );
 };
 
-const Container = styled.div``;
+const Container = styled.div`
+  border: dotted;
+`;
 
-const ContentWrapper = styled.div``;
+const ContentWrapper = styled.div`
+  display: flex;
+  justify-content: space-around;
+
+  border: dotted;
+  border-color: red;
+  height: calc(100vh - ${RUN_FOOTER_HEIGHT + 15}px);
+`;
 
 export default Home;

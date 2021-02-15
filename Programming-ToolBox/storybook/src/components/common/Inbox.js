@@ -4,8 +4,22 @@ import styled from "styled-components";
 import Search from "./Search";
 import { RUN_FOOTER_HEIGHT } from "../../constants/app.constants";
 import { useHistory } from "react-router-dom";
+// import { useSelector, useDispatch } from "react-redux";
+// import { addMessage } from "../../redux/actions/inbox.actions";
 
 const Inbox = () => {
+  //   // ex getting or selecting store data
+  //   const state = useSelector((storeState) => storeState);
+  //   console.log(state);
+
+  //   // ex setting or adding to store data
+  //   const dispatch = useDispatch();
+  //   dispatch(addMessage("first message"));
+
+  //   // make sure to update some data only when it is changed
+  //   const response = useSelector((state) => state.response);
+  //   useEffect(() => {}, [response]);
+
   const history = useHistory();
   const goHome = () => {
     history.push("/home");

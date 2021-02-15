@@ -1,21 +1,28 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { loginUser } from "../../redux/actions/session.actions";
+
+import { useSelector, useDispatch } from "react-redux";
 
 const LoginForm = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const history = useHistory();
-  const handleOnClick = () => {
-    // commented out for dev-purposes: does not require admin login to display rest of pages
-    // verifyUser() &&
-    setIsLoggedIn(true) || history.push("/home");
-  };
 
   const verifyUser = () => {
     return username === "admin" && password === "admin";
+  };
+
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const handleOnClick = () => {
+    if (!verifyUser(username, password)) {
+      alert("must enter a valid username and password");
+      return;
+    }
+    history.push("/home");
+    return dispatch(loginUser(username, password));
   };
 
   return (

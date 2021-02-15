@@ -8,6 +8,12 @@ export const THEME = {
   white: "white",
 };
 
+export const TEXT_INPUT_PROPS = {
+  title: "username",
+  usernamePlaceholder: "email/username...",
+  passwordPlaceholder: "password...",
+};
+
 export const PHONE_SCREEN_SIZES = {
   iphone_8: {
     width: 375,

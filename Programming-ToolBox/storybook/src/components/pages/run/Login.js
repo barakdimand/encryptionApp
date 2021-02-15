@@ -1,16 +1,18 @@
 import styled from "styled-components";
+
+import { useState } from "react";
+
 import { RUN_FOOTER_HEIGHT, THEME } from "../../../constants/app.constants";
-import TextInput from "../../common/TextInput";
 import Footer from "./Footer";
 import Header from "./Header";
+import LoginForm from "../../common/LoginForm";
 
 const LogIn = () => {
   return (
     <div>
       <Header />
       <Content>
-        <TextInput />
-        <TextInput />
+        <LoginForm />
       </Content>
       <Footer />
     </div>
@@ -23,7 +25,7 @@ const Content = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - (${RUN_FOOTER_HEIGHT}px + 20px));
+  height: calc(100vh - (${RUN_FOOTER_HEIGHT}px));
   background-color: ${THEME.secondary};
 `;
 

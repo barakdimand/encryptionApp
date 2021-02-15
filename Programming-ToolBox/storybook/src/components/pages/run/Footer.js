@@ -1,8 +1,13 @@
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { RUN_FOOTER_HEIGHT, THEME } from "../../../constants/app.constants";
 
 const Footer = () => {
-  return <FooterWrapper>I'm a footer</FooterWrapper>;
+  return (
+    <FooterWrapper>
+      <div>I'm a footer</div>
+    </FooterWrapper>
+  );
 };
 
 const FooterWrapper = styled.div`
@@ -15,6 +20,8 @@ const FooterWrapper = styled.div`
   z-index: 10;
   background-color: ${THEME.primary};
   height: ${RUN_FOOTER_HEIGHT}px;
+  border: dotted;
+  border-color: blue;
 `;
 
 export default Footer;

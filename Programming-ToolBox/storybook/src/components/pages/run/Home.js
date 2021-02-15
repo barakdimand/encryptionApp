@@ -13,17 +13,10 @@ import PageNotFound from "../PageNotFound";
 import Inbox from "../../common/Inbox";
 import Codes from "../../common/Codes";
 import { RUN_FOOTER_HEIGHT } from "../../../constants/app.constants";
+import Navbar from "../../common/Navbar";
 
 const HomeContent = (props) => {
-  const history = useHistory();
-  return (
-    <ContentWrapper>
-      <div onClick={() => history.push("/inbox")}>inbox</div>
-      <div>sent</div>
-      <div>draft</div>
-      <div onClick={() => history.push("/codes")}>codes</div>
-    </ContentWrapper>
-  );
+  return <Navbar />;
 };
 
 const Home = (props) => {

@@ -1,11 +1,15 @@
 import styled from "styled-components";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+
+import { cacheInboxSearchInput } from "../../redux/actions/inbox.actions";
 
 const Search = () => {
   const [search, setSearch] = useState("");
+  const dispatch = useDispatch();
 
   const handleOnClick = () => {
-    console.log(search);
+    dispatch(cacheInboxSearchInput(search));
   };
 
   return (

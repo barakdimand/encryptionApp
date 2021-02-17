@@ -1,6 +1,8 @@
 export const RUN_FOOTER_HEIGHT = 123;
 export const RUN_HEADER_HEIGHT = 55;
 
+export const RUN_NAVBAR_HEIGHT = 55;
+
 export const THEME = {
   primary: "#FAEBD7",
   secondary: "#F0FFFF",

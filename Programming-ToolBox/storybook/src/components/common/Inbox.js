@@ -4,33 +4,36 @@ import styled from "styled-components";
 import Search from "./Search";
 import { RUN_FOOTER_HEIGHT } from "../../constants/app.constants";
 import { useHistory } from "react-router-dom";
-// import { useSelector, useDispatch } from "react-redux";
+import Feed from "./Feed";
+import { useSelector, useDispatch } from "react-redux";
 // import { addMessage } from "../../redux/actions/inbox.actions";
 
+const mockData = [
+  {
+    creationTime: Date(),
+    creator: "barak",
+    content:
+      "Aliquam facilisis felis a nibh fermentum, ut rutrum nisi mattis. Proin euismod eget augue vel dignissim. Aliquam vehicula nunc efficitur lacus laoreet, non mattis enim rhoncus. Aliquam sed massa non metus consectetur varius sit amet vitae orci. Ut egestas felis quis quam vulputate, et pellentesque lectus accumsan. ",
+  },
+  {
+    creationTime: Date(),
+    creator: "dimand",
+    content:
+      "Aliquam facilisis felis a nibh fermentum, ut rutrum nisi mattis. Proin euismod eget augue vel dignissim. Aliquam vehicula nunc efficitur lacus laoreet, non mattis enim rhoncus. Aliquam sed massa non metus consectetur varius sit amet vitae orci. Ut egestas felis quis quam vulputate, et pellentesque lectus accumsan. ",
+  },
+];
+
 const Inbox = () => {
-  //   // ex getting or selecting store data
-  //   const state = useSelector((storeState) => storeState);
-  //   console.log(state);
-
-  //   // ex setting or adding to store data
-  //   const dispatch = useDispatch();
-  //   dispatch(addMessage("first message"));
-
-  //   // make sure to update some data only when it is changed
-  //   const response = useSelector((state) => state.response);
-  //   useEffect(() => {}, [response]);
-
   const history = useHistory();
-  const goHome = () => {
-    history.push("/home");
-  };
+  const state = useSelector((storeState) => storeState);
+  const { inboxMessages } = state.inbox;
 
   return (
     <Container>
       <h1>Inbox</h1>
       <Search />
-      <InboxWrapper>Feed Content</InboxWrapper>
-      <button onClick={goHome}>Home</button>
+      <Feed messages={inboxMessages} />
+      <button onClick={() => history.push("/home")}>Home</button>
     </Container>
   );
 };
@@ -43,7 +46,7 @@ const Container = styled.div`
   justify-content: space-around;
 `;
 
-const InboxWrapper = styled.div``;
+const FeedWrapper = styled.div``;
 
 export default Inbox;
 
@@ -61,3 +64,15 @@ export default Inbox;
 //       document.removeEventListener("click", foo);
 //     };
 //   }, []);
+
+//   // ex getting or selecting store data
+//   const state = useSelector((storeState) => storeState);
+//   console.log(state);
+
+//   // ex setting or adding to store data
+//   const dispatch = useDispatch();
+//   dispatch(addMessage("first message"));
+
+//   // make sure to update some data only when it is changed
+//   const response = useSelector((state) => state.response);
+//   useEffect(() => {}, [response]);

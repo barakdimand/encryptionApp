@@ -9,3 +9,8 @@ export const removeMessage = (id) => ({
   type: AT.REMOVE_MESSAGE,
   payload: { id },
 });
+
+export const cacheInboxSearchInput = (searchInput) => ({
+  type: AT.CACHE_INBOX_SEARCH_INPUT,
+  payload: { searchInput },
+});

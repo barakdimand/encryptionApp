@@ -6,16 +6,19 @@ import {
   useHistory,
 } from "react-router-dom";
 
-import { RUN_FOOTER_HEIGHT } from "../../constants/app.constants";
+import {
+  RUN_FOOTER_HEIGHT,
+  RUN_NAVBAR_HEIGHT,
+} from "../../constants/app.constants";
 
 const Navbar = () => {
   const history = useHistory();
   return (
     <ContentWrapper>
-      <div onClick={() => history.push("/inbox")}>inbox</div>
-      <div>sent</div>
-      <div>draft</div>
-      <div onClick={() => history.push("/codes")}>codes</div>
+      <NavOption onClick={() => history.push("/inbox")}>inbox</NavOption>
+      <NavOption>sent</NavOption>
+      <NavOption>draft</NavOption>
+      <NavOption onClick={() => history.push("/codes")}>codes</NavOption>
     </ContentWrapper>
   );
 };
@@ -25,7 +28,13 @@ const ContentWrapper = styled.div`
   justify-content: space-around;
   border: dotted;
   border-color: red;
-  height: calc(100vh - ${RUN_FOOTER_HEIGHT + 15}px);
+  height: ${RUN_NAVBAR_HEIGHT}px;
+`;
+
+const NavOption = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export default Navbar;
